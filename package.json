@@ -5,9 +5,10 @@
   "author": "",
   "license": "MIT",
   "mikro-orm": {
+    "useTsNode": true,
     "configPaths": [
-      "./dist/mikro-orm.config.js",
-      "./src/mikro-orm.config.ts"
+      "./src/mikro-orm.config.ts",
+      "./dist/mikro-orm.config.js"
     ]
   },
   "scripts": {
