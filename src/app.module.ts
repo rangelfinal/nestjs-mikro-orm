@@ -3,17 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MikroOrmModule } from 'nestjs-mikro-orm';
 import { Foo } from './entities/foo.entity';
+import DBConfig from './mikro-orm.config'
 
 @Module({
   imports: [
-    MikroOrmModule.forRoot({
-      entitiesDirs: ['../dist/entities'],
-      entitiesDirsTs: ['../src/entities'],
-      dbName: 'my-db-name.sqlite3',
-      type: 'sqlite',
-      autoFlush: false,
-      baseDir: __dirname,
-    }),
+    MikroOrmModule.forRoot({ ...DBConfig }),
     MikroOrmModule.forFeature({ entities: [Foo] }),
   ],
   controllers: [AppController],
